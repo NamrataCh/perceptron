@@ -8,6 +8,14 @@ plt.style.use("fivethirtyeight") # THIS IS STYLE OF GRAPHS
 
 
 def prepare_data(df):
+  """It is used to separate dependent and independent features
+
+  Args:
+      df (pd.Dataframe): Its datasets
+
+  Returns:
+      tuple: It returns the tuple of dependent and independent variable
+  """
   X = df.drop("y", axis=1)
 
   y = df["y"]
@@ -16,6 +24,12 @@ def prepare_data(df):
 
 
 def save_model(model, filename):
+  """This Saves the trained model
+
+  Args:
+      model (python object): trained model
+      filename (str): path to save the model
+  """
   model_dir = "models"
   os.makedirs(model_dir, exist_ok=True) # ONLY CREATE IF MODEL_DIR DOESN"T EXISTS
   filePath = os.path.join(model_dir, filename) # model/filename
